@@ -37,14 +37,14 @@ def get_birthday():
 
 def get_words():
   dateTimeObj = datetime.now()
-  if (dateTimeObj.hour == 22):
+  if (dateTimeObj.hour == 22 or dateTimeObj.hour == 2):
     words = requests.get("http://api.tianapi.com/star/index?key=419186fbca431df736e8a80f9bdcadca&astro=virgo").json()
     return words['newslist'][-1]['content']
-  if (dateTimeObj.hour == 2):
+  if (dateTimeObj.hour == 0):
     words = requests.get("http://api.tianapi.com/qingshi/index?key=419186fbca431df736e8a80f9bdcadca").json()
     return words['newslist'][-1]['content'] + " " + words['newslist'][-1]['source'] + " " + words['newslist'][-1][
       'author']
-  if (dateTimeObj.hour == 4):
+  if (dateTimeObj.hour == 6):
     words = requests.get("http://api.tianapi.com/zmsc/index?key=419186fbca431df736e8a80f9bdcadca").json()
     return words['newslist'][-1]['content'] + " " + words['newslist'][-1]['source']
   words = requests.get("http://api.tianapi.com/dialogue/index?key=419186fbca431df736e8a80f9bdcadca").json()
